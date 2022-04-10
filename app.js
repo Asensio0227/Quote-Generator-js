@@ -73,10 +73,23 @@ const data = [
 ];
 
 const toggle = document.querySelector('.nav-toggle');
+const container = document.querySelector('.links-container');
+const links = document.querySelector('.links');;
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
 const author = document.querySelector('.author');
 const text = document.querySelector('.text');
+
+toggle.addEventListener('click', () => {
+  const linksHeight = links.getBoundingClientRect().height;
+  const containerHeight = container.getBoundingClientRect().height;
+  
+  if (containerHeight === 0) {
+    container.style.height = `${linksHeight}px`;
+  } else {
+    container.style.height = '0px';
+  }
+})
 
 let index = 0;
 
